@@ -1,0 +1,81 @@
+<h1>Manage flights</h1>
+<div>
+  <div class="add-container">
+    <button
+    class="add-button"
+    mat-raised-button
+    routerLink="/admin/flights/create"
+  ><mat-icon style="margin-left:2px; margin-right: 0;">add</mat-icon>Add new Flight
+  </button>
+  </div>
+ 
+
+  <table mat-table matSort [dataSource]="flightsData" class="mat-elevation-z8">
+    <ng-container matColumnDef="flightNumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Flight number</th>
+      <td mat-cell *matCellDef="let element">{{ element.flightNumber }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="departingAirportId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Departing airport
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.departingAirport.airportName }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="destinationAirportId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Destination airport
+
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.destinationAirport.airportName }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="aircraftId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Aircraft type</th>
+      <td mat-cell *matCellDef="let element">{{ element.aircraft.maker + " " + element.aircraft.model }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="departingTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Departing Time</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.departingTime | date }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="flightTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Flight time</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.flightTime}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="flightCost">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Flight cost</th>
+      <td mat-cell *matCellDef="let element">{{ element.flightCost }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="action-buttons">
+        <button class="edit-button" [routerLink]="['/admin/flights/create', element]">
+          <mat-icon>edit</mat-icon>
+      </button>
+      <button class="delete-button" (click)="deleteFlight(element.flightNumber)">
+        <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="flightsColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: flightsColumns"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[25, 6, 10]"
+                 showFirstLastButtons></mat-paginator>
+</div>

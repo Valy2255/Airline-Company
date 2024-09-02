@@ -1,0 +1,97 @@
+<div class="container">
+  <img src="../../../assets/images/background-image.jpg" alt="background image" />
+  <div class="overlay">
+    <h4 class="widget-title">BOOK YOUR FLIGHT NOW!</h4>
+    <div class="form-container">
+    <form [formGroup]="form">
+        <!--Departing Airport selector-->
+        <mat-form-field appearance="outline" class="custom-form-field">
+          <mat-label>Departing Airport</mat-label>
+          <mat-select formControlName="departingAirport" (selectionChange)="onInputChange($event, 'departingAirport')" required>
+            <mat-option *ngFor="let airport of airports" [value]="airport.airportName">
+              {{ airport.airportName }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('departingAirport')?.hasError('required')">
+            Departing Airport is required.
+          </mat-error>
+        </mat-form-field>
+      
+        <!--Destination Airport selector-->
+        <mat-form-field appearance="outline" class="custom-form-field">
+          <mat-label>Destination Airport</mat-label>
+          <mat-select formControlName="destinationAirport" (selectionChange)="onInputChange($event, 'destinationAirport')" required>
+            <mat-option *ngFor="let airport of airports" [value]="airport.airportName">
+              {{ airport.airportName }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('destinationAirport')?.hasError('required')">
+            Destination Airport is required.
+          </mat-error>
+        </mat-form-field>
+      
+         <!--Departing time selector-->
+        <mat-form-field appearance="outline" class="custom-form-field">
+          <mat-label>Departing Time</mat-label>
+          <input matInput [matDatepicker]="departingPicker" formControlName="departingTime" [matDatepickerFilter]="dateFilter" (dateChange)="onInputChange($event, 'departingTime')" required>
+          <mat-datepicker-toggle matSuffix [for]="departingPicker"></mat-datepicker-toggle>
+          <mat-datepicker #departingPicker></mat-datepicker>
+          <mat-error *ngIf="form.get('departingTime')?.hasError('pastDate')">
+            Departing Time cannot be in the past.
+          </mat-error>
+        </mat-form-field>
+      
+        <!--Return time selector
+        <mat-form-field appearance="outline" class="custom-form-field">
+          <mat-label>Return Time</mat-label>
+          <input matInput [matDatepicker]="returnPicker" formControlName="returnTime" [matDatepickerFilter]="dateFilter">
+          <mat-datepicker-toggle matSuffix [for]="returnPicker"></mat-datepicker-toggle>
+          <mat-datepicker #returnPicker></mat-datepicker>
+          <mat-error *ngIf="form.get('returnTime')?.hasError('invalidReturnDate')">
+            Return Time must be after Departing Time.
+          </mat-error>
+          <mat-error *ngIf="form.get('returnTime')?.hasError('pastDate')">
+            Return Time cannot be in the past.
+          </mat-error>
+        </mat-form-field>
+      -->
+      
+    
+      <button type="submit" [disabled]="form.invalid" (click)="onSubmit()">
+        <mat-icon style="margin-bottom: -5px;">search</mat-icon>
+        Search</button>
+    </form>
+  </div>
+  </div>
+
+  <!-- Container pentru discounturi -->
+  <div class="discounts-container">
+    <div class="carousel">
+      
+      <div class="carousel-inner" [style.transform]="getTransform()">
+        <div class="carousel-item" *ngFor="let discount of discounts; let i = index" [ngClass]="{'active': i === 0}" (click)="openDiscountFlight(discount.flightId)">
+          <div class="discount-item">
+            <img  style ="height:300px" [src]="imageMapping[discount.discountId]" alt="Discount image">
+            <div class="carousel-caption">
+              <h3>{{ discount.discountName }}</h3>
+              <p>{{ discount.discountDescription }}</p>
+              <p>Discount: {{ discount.discountPercentage }}%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+     
+    </div>
+    <button style="width:40px" class="carousel-control-prev" (click)="prevSlide()">
+      <i class="fas fa-chevron-left"></i>
+  </button>
+  <button style="width:40px" class="carousel-control-next" (click)="nextSlide()">
+      <i class="fas fa-chevron-right"></i>
+  </button>
+  
+  </div>
+
+  <app-footer></app-footer>
+</div>
+

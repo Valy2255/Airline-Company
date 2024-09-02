@@ -1,0 +1,105 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  top: 10%;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  margin: 50px;
+  padding: 20px;
+  margin-top: -50px;
+  margin-left: 750px;
+}
+
+mat-form-field {
+  margin-bottom: 10px;
+}
+
+:host ::ng-deep .p-password input {
+  background-color: #F9F9F9;
+  margin-bottom: 40px;
+  width: 185px;
+  height: 50px;
+  margin-bottom: 60px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  font-size: 1.5em;
+  padding-left: 20px;
+}
+
+:host ::ng-deep .p-password input:focus {
+  border : 2px solid  #005cbb !important;
+  outline: 0 !important;
+}
+
+:host ::ng-deep .p-password-panel .p-password-meter .p-password-strength.weak {
+  background: #D32F2F;
+}
+
+:host ::ng-deep .p-password-panel .p-password-meter .p-password-strength.medium {
+  background: #FBC02D;
+}
+
+:host ::ng-deep .p-password-panel .p-password-meter .p-password-strength.strong {
+  background: #689F38;
+}
+
+.register_button {
+  width: 30%;
+  border: none;
+  border-radius: 5px;
+  background-color: #0a4c6b!important;
+  color: white !important;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register_button:hover {
+  background-color: #0a4c6b;
+  color: white;
+}
+
+.navigate-link {
+  color: #0a4c6b;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.navigate-link:hover {
+  color: #0a4c6b;
+}
+
+.airplane_image {
+  --s: 700px; /* the image size */
+  width: var(--s);
+  height: var(--s); /* better than aspect-ratio in case the image has a height attribute */
+  box-sizing: border-box;
+  transition: .5s;
+  padding-right: var(--s);
+  margin-top: 50px;
+} 
+
+.airplane_image.animate {
+  padding-right: 0px;
+  transition: padding-right 0.5s ease;
+}
+
+
+.airplane_animation {
+  min-height: 100px;
+  display: grid;
+  place-content: center;
+  grid-auto-flow: column;
+}
+

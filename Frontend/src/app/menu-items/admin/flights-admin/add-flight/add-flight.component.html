@@ -1,0 +1,90 @@
+<h1>{{ flightId ? "Edit Flight with ID " + flightId : "Add Flight" }}</h1>
+
+<form
+  [formGroup]="addFlightForm"
+  (ngSubmit)="onSubmit()"
+  class="form-container"
+>
+  
+
+  <mat-form-field appearance="outline">
+    <mat-label>Departing Airport:</mat-label>
+    <input matInput placeholder="Select departing airport" formControlName="departingAirportId"
+      [matAutocomplete]="autoAirport" required />
+    <mat-autocomplete #autoAirport="matAutocomplete">
+      <mat-option *ngFor="let airport of (airports$ | async)" [value]="airport.airportId">
+        {{ airport.airportName }}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error *ngIf="hasError('departingAirportId', 'required')">Departing Airport is required</mat-error>
+  </mat-form-field>
+  
+  <mat-form-field appearance="outline">
+    <mat-label>Destination Airport:</mat-label>
+    <input matInput placeholder="Select destination airport" formControlName="destinationAirportId"
+      [matAutocomplete]="autoDestination" required />
+    <mat-autocomplete #autoDestination="matAutocomplete">
+      <mat-option *ngFor="let airport of (airports$ | async)" [value]="airport.airportId">
+        {{ airport.airportName }}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error *ngIf="hasError('destinationAirportId', 'required')">Destination Airport is required</mat-error>
+  </mat-form-field>
+  
+  <mat-form-field appearance="outline">
+    <mat-label>Aircraft:</mat-label>
+    <input matInput placeholder="Select aircraft" formControlName="aircraftId" [matAutocomplete]="autoAircraft"
+      required />
+    <mat-autocomplete #autoAircraft="matAutocomplete">
+      <mat-option *ngFor="let aircraft of (aircrafts$ | async)" [value]="aircraft.aircraftId">
+        {{ aircraft.maker+' '+aircraft.model }}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error *ngIf="hasError('aircraftId', 'required')">Aircraft is required</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Departing Time:</mat-label>
+    <input
+      matInput
+      placeholder="Departing Time"
+      formControlName="departingTime"
+      type="datetime-local"
+      required
+    />
+    <mat-error *ngIf="hasError('departingTime', 'required')"
+      >Departing Time is required</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Flight Time:</mat-label>
+    <input
+      matInput
+      placeholder="Flight Time"
+      formControlName="flightTime"
+      type="number"
+      required
+    />
+    <mat-error *ngIf="hasError('flightTime', 'required')"
+      >Flight Time is required</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Flight Cost:</mat-label>
+    <input
+      matInput
+      placeholder="Flight Cost"
+      formControlName="flightCost"
+      type="number"
+      required
+    />
+    <mat-error *ngIf="hasError('flightCost', 'required')"
+      >Flight Cost is required</mat-error
+    >
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" [disabled]="!addFlightForm.valid">
+    Submit
+  </button>
+</form>

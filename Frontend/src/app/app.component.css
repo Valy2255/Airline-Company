@@ -1,0 +1,127 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100%;
+  margin: 0;
+}
+
+#watery_logo{
+  width: 200px;
+  height: 70px;
+}
+
+#navigation-bar {
+	position: fixed;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 70px;
+	background-color: #0a4c6b;
+	display: flex;
+       align-items: center;
+    z-index: 99;
+}
+
+.nav_item {
+	height: 60px;
+	padding-left: 10px;
+	padding-right: 10px;
+	display: flex;
+       align-items: center;
+	font-family: 'FrizQuadrataRegular';
+}
+
+.nav_item div {
+	height: 20px;
+	border-radius: 5px;
+	padding-top: 1px;
+	padding-bottom: 3px;
+	font-family: 'FrizQuadrataRegular';
+}
+
+a{
+		text-decoration: none;
+    font-weight: bold;
+		color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.nav_item:hover {
+	border-bottom: 5px solid #b1922d;
+}
+
+.nav_item:hover div {
+	background-color: black;
+	margin-bottom: -7px;
+	border-bottom: black;
+}
+
+#current_user_card{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	padding:2px;
+	margin-right: 20px
+}
+
+#current_user_card img{
+	width:100px;
+}
+
+#current_user_card:hover{
+	border-radius: 20px;
+	border: 2px solid white ;
+	cursor:pointer;
+	padding:0px;
+	
+}
+
+#user_dropdown {
+	display: none;
+	position: absolute;
+	top: 70px; /* Adjust as necessary */
+	background-color: white;
+	color: black;
+	min-width: 150px;
+	max-width: fit-content;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	flex-direction: column;
+	align-items: flex-start;
+  }
+  
+  #user_dropdown .user-name {
+	padding: 10px;
+	font-weight: bold;
+  }
+  
+  .dropdown-button {
+	padding: 10px;
+	width: 100%;
+	text-align: left;
+	border: none;
+	background: none;
+	cursor: pointer;
+  }
+  
+  .dropdown-button:hover {
+	background-color: #ddd;
+  }
+
+
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column ;
+  flex-grow: 1;
+}
+ 
+.spacer {
+    flex: 1 1 auto;
+}
+
+.app-footer {
+  top: 100%;
+  position: static;
+}

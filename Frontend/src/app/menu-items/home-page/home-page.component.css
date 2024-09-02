@@ -1,0 +1,223 @@
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+  
+}
+
+.overlay {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 84.5%;
+  height: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: black;
+  font-size: 20px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  appearance: none; /* Remove default dropdown arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: 20px;
+}
+
+.form-group select {
+  width: 200px;
+  height: 40px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0a4c6b;
+  color: white;
+  cursor: pointer;
+  margin-top: 0;
+  height: 60px;
+  width: 150px;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: #14709b;
+}
+
+.dropdown {
+  width: 200px;
+  height: 30px;
+}
+
+.discounts-container {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  
+}
+
+.carousel {
+  position: relative;
+  margin-bottom: 50px;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  min-width: 33.33%;
+  min-height:50%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.discount-item {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin: 15px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.discount-item:hover {
+  transform: translateY(-10px);
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.discount-item img {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px 10px 0 0;
+}
+
+.carousel-caption {
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+
+.discount-item h3 {
+  margin: 10px 0;
+  font-size: 1.5em;
+  color: #0a4c6b;
+}
+
+.discount-item p {
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 65%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.carousel-control-prev {
+  left: 10px; /* Adjusted to be outside the carousel items */
+}
+
+.carousel-control-next {
+  right: 0px; /* Adjusted to be outside the carousel items */
+}
+
+.custom-form-field{
+  height: 60px !important;
+  margin-right: 20px;
+}
+
+.form-container{
+  display: flex;
+  flex-wrap: wrap; 
+  flex-direction: row;
+  gap: 30px;
+}
+
+/*--------------------------------------------
+        mat-form-field-customization
+---------------------------------------------*/
+
+/* Mat Input Color On Focus*/
+::ng-deep .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color:#0a4c6b;
+  font-size: 12px;
+}
+
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: #0a4c6b;
+}
+
+
+::ng-deep .mat-mdc-form-field-flex {
+  height: 60px !important;
+}
+
+::ng-deep .mdc-text-field__input {
+  margin-top: -10px !important;
+}
+
+.widget-title {
+  color: #0a4c6b;
+  font-weight: 600;
+}
